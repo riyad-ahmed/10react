@@ -33,6 +33,7 @@ function App() {
         <button onClick={()=>{setTime(0)}} className="border-2 rounded-lg px-2">Reset</button>
       </div>
     </div>
+
   );
 }
 
