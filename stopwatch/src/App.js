@@ -31,6 +31,7 @@ function App() {
         <button onClick={()=>{setRunning(true)}} className="border-2 rounded-lg px-2">Start</button>
         <button onClick={()=>{setRunning(false)}} className="border-2 rounded-lg px-2">Stop</button>
         <button onClick={()=>{setTime(0)}} className="border-2 rounded-lg px-2">Reset</button>
+        <button onClick={()=>{setTime(0)}} className="border-2 rounded-lg px-2">Reset</button>
       </div>
     </div>
 
