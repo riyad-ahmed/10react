@@ -21,7 +21,7 @@ function App() {
 
   return (
     <div className='flex flex-col items-center justify-center py-8'>
-      <h1 className='text-2xl font-semibold pb-2'>Stopwatch</h1>
+      <h1 className='text-2xl font-semibold pb-2'>Stopwatch..</h1>
       <div className='text-xl font-semibold'>
         <span>{("0" + Math.floor((time / 60000) % 60))}:</span>
         <span>{("0" + Math.floor((time / 1000) % 60))}:</span>
