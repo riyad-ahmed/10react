@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Loginsignup = () => {
+const Login = () => {
   return (
 <div class="max-w-sm w-full mx-auto mt-12 bg-[#add8e6] rounded-lg shadow-lg font-poppins">
   <h1 class="text-center m-0 py-5 text-2xl font-bold text-white">Login</h1>
@@ -15,5 +15,5 @@ const Loginsignup = () => {
   )
 }
 
-export default Loginsignup
+export default Login
 
