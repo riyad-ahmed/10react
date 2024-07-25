@@ -4,65 +4,74 @@ import { useState } from 'react';
 
 const Signup = () => {
 
-  let [name, setName] = useState('');
-  let [email, setEmail] = useState('');
-  let [password, setPassword] = useState('');
-  let [err, setErr] = useState('');
+ 
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [err, setErr] = useState({allError: '', name: '', email: '', password: '', passwordLength: ''});
 
 
-  let handleSubmit = ()=>{
+  const handleSubmit = (event)=>{
+    event.preventDefault();
+    console.log(name, email, password);
     if(!name && !email && !password){
-      setErr('Please fill all the fields');
+      setErr({...err, allError: 'All fields are required'});
     } else if(!name){
-      setErr('Enter your name');
+      setErr({...err, name:'Enter your name'});
     } else if(!email){
-      setErr('Enter your email');
+      setErr({...err, email:'Enter your email'}); 
+    } else if(!password){
+      setErr({...err , password:'Enter your password'});
+    } else if(!password.length < 6){
+      setErr({...err, passwordLength:'Password must be atleast 6 characters long'});
     }
-    else if(!password){
-      setErr('Enter your password');
-    } else if(password.length < 6){
-      setErr('Password must be atleast 6 characters long');
+
+    if(name && email && password && password.length >= 6){
+      setErr({allError: '', name: '', email: '', password: '', passwordLength: ''});
     }
-    else{
-      setErr('');
-    }
+    console.log(err);
   }
 
 
 
   return (
     <>
-<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-    <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign UP</h2>
+<div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+  <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+    <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign UP</h2>
   </div>
 
-  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-    <form class="space-y-6" action="#" method="POST">
+  <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <form className="space-y-6" onSubmit={handleSubmit}>
       <div>
-        <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Name</label>
-        <div class="mt-2">
-          <input onChange={(e)=> setName(e.target.value)} id="name" name="name" type="text" autocomplete="string" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+        <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">Name</label>
+        <div className="mt-2">
+          <input onChange={(e)=> setName(e.target.value)} id="name" name="name" type="text" autoComplete="string"  className="block w-full rounded-md border-0 p-2  text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
         </div>
+        {err.name && <p className="text-red-600 !mt-0">{err.name}</p>}
       </div>
       <div>
-        <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
-        <div class="mt-2">
-          <input onChange={(e)=> setEmail(e.target.value)} id="email" name="email" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+        <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+        <div className="mt-2">
+          <input onChange={(e)=> setEmail(e.target.value)} id="email" name="email" type="email" autoComplete="email"  className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
         </div>
+        {err.email && <p className="text-red-600 !mt-0">{err.email}</p>}
       </div>
 
       <div>
-        <div class="flex items-center justify-between">
-          <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+        <div className="flex items-center justify-between">
+          <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">Password</label>
         </div>
-            <div class="mt-2">
-                <input onChange={(e)=> setPassword(e.target.value)} id="password" name="password" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+            <div className="mt-2">
+                <input onChange={(e)=> setPassword(e.target.value)} id="password" name="password" type="password" autoComplete="current-password"  className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
             </div>
         </div>
-        <p>{err}</p>
+        {err.password && <p className="text-red-600 !mt-0">{err.password}</p>}
+        {err.passwordLength && <p className="text-red-600 !mt-0">{err.passwordLength}</p>}
+        {err.allError && <p className="text-red-600 !mt-0">{err.allError}</p>}
       <div>
-        <button onClick={handleSubmit} type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign UP</button>
+        <button type="submit" className="flex w-full justify-center rounded-md bg-indigo-600 px-3 p-2 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign UP</button>
       </div>
       <div>
         <Link to="/Signin">Already have an account? Sign in</Link>
