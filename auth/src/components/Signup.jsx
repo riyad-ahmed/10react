@@ -2,11 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
 import firebaseConfig from '../firebaseConfig';
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
 
   const auth = getAuth();
+  const navigate = useNavigate();
+
   
 
 
@@ -20,7 +23,6 @@ const Signup = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(name, email, password);
 
     let errors = {};
 
@@ -45,45 +47,27 @@ const Signup = () => {
     if (Object.keys(errors).length > 0) {
       setErr(errors);
     } else {
-      signInWithEmailAndPassword(auth, email, password)
+      createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-
-        setErr({ allError: '', name: '', email: '', password: '', passwordLength: '' });
-
+        //signed in
+        updateProfile(auth.currentUser, {
+          displayName: name, 
+          photoURL: "https://www.w3schools.com/howto/img_avatar.png"
+        }).then(() => {
+          // Profile updated!
+          setErr({ allError: '', name: '', email: '', password: '', passwordLength: '' });
+          navigate("/");
+        });
       })
       .catch((error) => {
-        console.log(error.code);
-      });
-      
+        // An error occurred
+          console.log(error.code);
+          if (error.code == "auth/email-already-in-use"){
+            setErr({email: 'Email already in use'});
+          }
+        });  
     }
   };
-
-
-
-
-
-
-
-  // const handleSubmit = (event)=>{
-  //   event.preventDefault();
-  //   console.log(name, email, password);
-  //   if(!name && !email && !password){
-  //     setErr({...err, allError: 'All fields are required'});
-  //   } else if(!name){
-  //     setErr({...err, name:'Enter your name'});
-  //   } else if(!email){
-  //     setErr({...err, email:'Enter your email'}); 
-  //   } else if(!password){
-  //     setErr({...err , password:'Enter your password'});
-  //   } else if(!password.length < 6){
-  //     setErr({...err, passwordLength:'Password must be atleast 6 characters long'});
-  //   } 
-  //     if(name && email && password && password.length >= 6){
-  //     setErr({allError: '', name: '', email: '', password: '', passwordLength: ''});
-  //   }
-  // }
-
-
 
   return (
     <>
