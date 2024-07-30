@@ -1,8 +1,8 @@
 import React from 'react'
 import { getAuth, signOut } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
+import UserProfile from '../UserProfile';
+import { useState } from 'react';
 
 function Home() {
 
@@ -65,6 +65,8 @@ function Home() {
                 <img src="https://images.unsplash.com/photo-1716691731823-5f382e879e82?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Overlapping Image" class="mx-auto rounded-full w-48 h-48"/>
             </div>
         </div>
+        <main>
+      </main>
     </div>
   )
 }
