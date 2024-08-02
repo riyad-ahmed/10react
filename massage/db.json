@@ -1,0 +1,157 @@
+{
+    "sidebar": {
+      "logo": {
+        "src": "/images/aircontrol-icon.svg",
+        "alt": "Logo"
+      },
+      "icons": [
+        {
+          "id": 1,
+          "src": "/images/project-icon8.png",
+          "alt": "Project Icon 1"
+        },
+        {
+          "id": 2,
+          "src": "/images/project-icon2.png",
+          "alt": "Project Icon 2"
+        },
+        {
+          "id": 3,
+          "src": "/images/project-icon1.png",
+          "alt": "Project Icon 3"
+        }
+      ]
+    },
+    "channels": {
+      "private": [
+        {
+          "name": "Morris and James",
+          "unreadCount": 89
+        },
+        {
+          "name": "Morris and Megan",
+          "unreadCount": 23
+        },
+        {
+          "name": "Morris and Austin",
+          "unreadCount": 12
+        }
+      ],
+      "public": [
+        {
+          "name": "# General",
+          "unreadCount": 24
+        },
+        {
+          "name": "# Support",
+          "unreadCount": 45
+        },
+        {
+          "name": "# Marketing",
+          "unreadCount": 12,
+          "isActive": true
+        },
+        {
+          "name": "# Sales",
+          "unreadCount": 89
+        },
+        {
+          "name": "# Developers",
+          "unreadCount": 64
+        }
+      ]
+    },
+    "user": {
+      "name": "Morris Ward",
+      "email": "morris.ward@example.com",
+      "profileImage": "https://www.pinterest.com/pin/507851295490880899/"
+    },
+
+    "channelAdmins": [
+      {
+        "name": "Gail Fields",
+        "image": "/images/user2.jpg",
+        "status": "online"
+      },
+      {
+        "name": "Jo Perez",
+        "image": "/images/user3.jpg",
+        "status": "online"
+      },
+      {
+        "name": "James May",
+        "image": "/images/user5.jpg",
+        "status": "away"
+      }
+    ],
+    "teamMembers": [
+      {
+        "name": "Leonard Romero",
+        "image": "/images/user13.jpg",
+        "status": "online"
+      },
+      {
+        "name": "Tanya Morales",
+        "image": "/images/user14.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "Megan Woods",
+        "image": "/images/user15.jpg",
+        "status": "offline"
+      },
+      {
+        "name": "Neil Hudson",
+        "image": "/images/user16.jpg",
+        "status": "online"
+      },
+      {
+        "name": "Bradley Harris",
+        "image": "/images/user17.jpg",
+        "status": "online"
+      },
+      {
+        "name": "Austin Anderson",
+        "image": "/images/user18.jpg",
+        "status": "away"
+      }
+    ],
+    
+      "comments": [
+        {
+          "userImage": "/images/user3.jpg",
+          "userName": "Taylor Brown",
+          "timeAgo": "3 hours ago",
+          "message": "Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Mait amet orci eget eros faucibus tincidunt.",
+          "actions": [
+            { "icon": "👋", "count": 4 },
+            { "icon": "😱", "count": 2 }
+          ]
+        },
+        {
+          "userImage": "/images/user6.jpg",
+          "userName": "Marco Lopez",
+          "timeAgo": "2 hours ago",
+          "message": "Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.",
+          "actions": [
+            { "icon": "👋", "count": 4 },
+            { "icon": "😱", "count": 2 },
+            { "icon": "🍔", "count": 1 }
+          ]
+        },
+        {
+          "userImage": "/images/user2.jpg",
+          "userName": "Morris Ward",
+          "timeAgo": "15 hours ago",
+          "message": "Duis leo. Aenean imperdiet. Etiam ultricies nisi vel a Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna.",
+          "actions": [
+            { "icon": "👋", "count": 2 },
+            { "icon": "🚀", "count": 2 }
+          ]
+        }
+      ]
+    
+
+  } 
+
+  
