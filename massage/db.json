@@ -64,7 +64,7 @@
     "user": {
       "name": "Morris Ward",
       "email": "morris.ward@example.com",
-      "profileImage": "https://www.pinterest.com/pin/507851295490880899/"
+      "profileImage": "/src/image/user.jpg"
     },
 
     "channelAdmins": [
@@ -116,7 +116,7 @@
         "status": "away"
       }
     ],
-    
+
       "comments": [
         {
           "userImage": "/images/user3.jpg",

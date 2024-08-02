@@ -20,6 +20,7 @@ const Header = () => {
     fetchUserData();
   }, []);
 
+  // console.log(user.profileImage);
 
 
   return (
